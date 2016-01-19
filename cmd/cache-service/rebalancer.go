@@ -79,6 +79,7 @@ func (r *Rebalancer) doRebalance() {
 		}
 	}
 
+	r.updateHostNames()
 	r.updateTokenMap()
 	r.cb.done(nil, r.cancel)
 }
