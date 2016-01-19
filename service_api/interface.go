@@ -101,8 +101,8 @@ type TopologyChange struct {
 }
 
 type ServiceManager interface {
-	GetNodeInfo() NodeInfo
-	Shutdown()
+	GetNodeInfo() (*NodeInfo, error)
+	Shutdown() error
 
 	GetTaskList(rev Revision, cancel Cancel) (*TaskList, error)
 	CancelTask(Id string, rev Revision) error

@@ -100,22 +100,26 @@ func (m *Mgr) getCurrentTokenMapLOCKED() *TokenMap {
 	return m.copyStateLOCKED().tokens
 }
 
-func (m *Mgr) GetNodeInfo() NodeInfo {
+func (m *Mgr) GetNodeInfo() (*NodeInfo, error) {
 	opaque := struct {
 		Host string `json:"host"`
 	}{
 		MyHost,
 	}
 
-	return NodeInfo{
+	info := &NodeInfo{
 		NodeId:  MyNode,
 		Version: 0,
 		Opaque:  opaque,
 	}
+
+	return info, nil
 }
 
-func (m *Mgr) Shutdown() {
+func (m *Mgr) Shutdown() error {
 	os.Exit(0)
+
+	return nil
 }
 
 func (m *Mgr) GetTaskList(rev Revision, cancel Cancel) (*TaskList, error) {

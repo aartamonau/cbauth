@@ -48,7 +48,12 @@ func withTimeout(timeout int64, body func(Cancel)) {
 }
 
 func (s ServiceAPI) GetNodeInfo(Void, res *NodeInfo) error {
-	*res = s.mgr.GetNodeInfo()
+	info, err := s.mgr.GetNodeInfo()
+	if err != nil {
+		return err
+	}
+
+	*res = *info
 	return nil
 }
 
@@ -60,8 +65,7 @@ type GetCurrentTopologyReq struct {
 func (s ServiceAPI) Shutdown(Void, res *Void) error {
 	*res = nil
 
-	s.mgr.Shutdown()
-	return nil
+	return s.mgr.Shutdown()
 }
 
 func (s ServiceAPI) GetCurrentTopology(req GetCurrentTopologyReq, res *Topology) error {
