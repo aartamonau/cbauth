@@ -69,6 +69,7 @@ type Task struct {
 	Progress         float64            `json:"progress"`
 	DetailedProgress map[NodeId]float64 `json:"detailedProgress,omitempty"`
 
+	Description  string `json:"description,omitempty"`
 	ErrorMessage string `json:"errorMessage,omitempty"`
 
 	Extra map[string]interface{} `json:"extra"`
