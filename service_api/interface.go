@@ -92,7 +92,7 @@ type TopologyChange struct {
 	Id                 string   `json:"id"`
 	CurrentTopologyRev Revision `json:"currentTopologyRev"`
 
-	Force bool `json:"force"`
+	Failover bool `json:"failover"`
 
 	Nodes []struct {
 		NodeInfo     NodeInfo     `json:"nodeInfo"`
