@@ -84,6 +84,7 @@ type Cancel <-chan struct{}
 type RecoveryType string
 
 const (
+	RecoveryTypeNone  = RecoveryType("recovery-none")
 	RecoveryTypeFull  = RecoveryType("recovery-full")
 	RecoveryTypeDelta = RecoveryType("recovery-delta")
 )
