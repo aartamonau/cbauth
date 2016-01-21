@@ -109,7 +109,7 @@ func (m *Mgr) GetNodeInfo() (*NodeInfo, error) {
 
 	info := &NodeInfo{
 		NodeId:  MyNode,
-		Version: 0,
+		Priority: 0,
 		Opaque:  opaque,
 	}
 

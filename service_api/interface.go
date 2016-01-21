@@ -27,13 +27,13 @@ var (
 )
 
 type Revision []byte
-type Version int64
+type Priority int64
 type NodeId string
 
 type NodeInfo struct {
-	NodeId  NodeId      `json:"nodeId"`
-	Version Version     `json:"version"`
-	Opaque  interface{} `json:"opaque"`
+	NodeId   NodeId      `json:"nodeId"`
+	Priority Priority    `json:"priority"`
+	Opaque   interface{} `json:"opaque"`
 }
 
 type Topology struct {
